@@ -4,13 +4,13 @@
 .EXAMPLE
     autokey.ps1 "action"
 .NOTES
-    Don't forget to make your paste.txt file
+    Don't forget to make your paste.txt file if you want to use one!
 #>
 
 $action = $args[0]
 
-$paste = get-content ./paste.txt # Get our paste file as ps hates typing special characters
-set-clipboard $paste
+
+$paste = get-content ./paste.txt -ErrorAction SilentlyContinue # Get our paste file as ps hates typing special characters
 
 $actions = @{
     "hello_world" = @('Hello World','{enter}','^v')
